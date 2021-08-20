@@ -22,11 +22,11 @@ class RSSchoolSQLiteOpenHelper(context: Context) : SQLiteOpenHelper(
     null,
     DATABASE_VERSION
 ) {
-
+//вызывается один раз при создании базы
     override fun onCreate(db: SQLiteDatabase) {
         try {
             db.execSQL(CREATE_TABLE_SQL)
-            (1..40).forEach {
+            (1..60).forEach {
                 db.execSQL("INSERT INTO $TABLE_NAME ($TOPIC_COLUMN) VALUES ('Storage Part $it');")
             }
         } catch (exception: SQLException) {
